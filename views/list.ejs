@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <style>
+      /* width */
+      ::-webkit-scrollbar {
+        width: 3px;
+        height: 5px;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: #f2a154;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: #888;
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+    </style>
+  </head>
+  <body class="body">
+    <div class="container ">
+      <h1 class="text-center t1"> <%= kindofday %></h1>
+      <h3 class="text-center t1">ToDoList</h3>
+
+
+
+          <form action="/" method="post" class="form-group">
+            <div class="todolist">
+              <div class="inputedit">
+                <input type="text" name="work" class="form-control col-md-6" placeholder="Add Item..." autocomplete="off" size="20">
+              </div>
+              <div class="input-group-append ">
+                <button class="btn btn-outline-secondary addedit" type="submit" name="button">Add</button>
+              </div>
+            </div>
+          </form>
+
+
+          <div class="d-flex flex-row">
+            <form action="/delete" method="post">
+                <%  worktodo.forEach(function(item){  %>
+                    <div class="float-left col-md-3 mainocover">
+                      <!-- <p >
+
+                          <input type="checkbox" name="checkbox" value="<%= item._id %>" onChange="this.form.submit()" >
+                          <span class="items"> <%= item.name %></span>
+
+
+
+                       </p> -->
+                      <div class="sticky">
+
+                          <div class="name-edit">
+                            <span class="task-edit m-auto"><%= item.name %></span>
+                            <button name="checkbox" value="<%= item._id %>" onChange="this.form.submit()" class="done">Done</button>
+                          </div>
+                      </div>
+                    </div>
+
+
+
+                <%  }) %>
+          </form>
+          </div>
+
+
+      </div>
+
+
+    </div>
+
+    <footer class="footer">
+          <div class="container">
+            <span class="text-muted">....Made By Amit Patle....</span>
+          </div>
+    </footer>
+
+  </body>
+</html>
